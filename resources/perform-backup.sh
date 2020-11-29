@@ -8,9 +8,9 @@ if [ ! -z "$GCP_GCLOUD_AUTH" ]; then
 
     # Check if we are already base64 decoded, credit: https://stackoverflow.com/questions/8571501/how-to-check-whether-a-string-is-base64-encoded-or-not
     if echo "$GCP_GCLOUD_AUTH" | grep -Eq '^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$'; then
-        echo "$GCP_GCLOUD_AUTH" | base64 --decode >"$HOME"/gcloud.json
+        echo "$GCP_GCLOUD_AUTH" | base64 --decode > $HOME/gcloud.json
     else
-        echo "$GCP_GCLOUD_AUTH" >"$HOME"/gcloud.json
+        echo "$GCP_GCLOUD_AUTH" > $HOME/gcloud.json
     fi
 
     # Activate the Service Account
